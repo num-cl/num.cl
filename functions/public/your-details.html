@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NUM.cl</title>
+
+    <meta name="functions-insert-dynamic-meta">
+    <meta name="functions-insert-dynamic-og">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <div id="message">
+      <h2>404</h2>
+    </div>
+    <script>
+      var user_email = window.location.href;
+      user_email = user_email.replace('https://num-cl.firebaseapp.com/', '');
+      document.getElementById('message').innerHTML = '<h2>' + user_email + '</h2>';
+
+      function setData(data) {
+        d = JSON.parse(data)
+        content = '<a href="https://num-cl.firebaseapp.com/' + user_email + '"><h2> num.cl/' + user_email + '</h2></a><br/>';
+        content += '<h2> Nombre: ' + d.user_name + '</h2><br/>';
+        content += '<h2> Rut: ' + d.user_rut + '</h2><br/>';
+        content += '<h2> Banco: ' + d.bank_name + '</h2><br/>';
+        content += '<h2> ' + d.bank_type + '</h2><br/>';
+        content += '<h2> N°: ' + d.bank_num + '</h2><br/>';
+        document.getElementById('message').innerHTML = content;
+      }
+
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() {
+          if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+              setData(xmlHttp.responseText);
+      }
+      xmlHttp.open('GET', 'https://us-central1-num-cl.cloudfunctions.net/getEmailData?user_email=' + user_email, true); // true for asynchronous
+      xmlHttp.send(null);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "pending": {
+      ".read": false,
+      ".write": false
+    },
+    "u": {
+      ".read": false,
+      ".write": false
+    }
+  }
+}
