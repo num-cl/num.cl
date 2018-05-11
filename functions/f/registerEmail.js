@@ -14,12 +14,12 @@ exports.handler = function(req, res, admin) {
 
   var registration = admin.database().ref('/pending/' + fe.encode(user_email)).push(
     {
-      u_email: user_email,
-      u_name: req.query.user_name,
-      u_rut: req.query.user_rut,
-      b_name: req.query.bank_name,
-      b_type: req.query.bank_type,
-      b_num: req.query.bank_num
+      user_email: user_email,
+      user_name: req.query.user_name,
+      user_rut: req.query.user_rut,
+      bank_name: req.query.bank_name,
+      account_type: req.query.account_type,
+      account_number: req.query.account_number
     }).then(snap => {
       // https://github.com/firebase/functions-samples/tree/master/email-confirmation
       const mailOptions = {

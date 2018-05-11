@@ -3,63 +3,73 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>NUM.cl</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/5.0.2/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/5.0.2/firebase-auth.js"></script>
-    <script defer src="/__/firebase/5.0.2/firebase-database.js"></script>
-    <script defer src="/__/firebase/5.0.2/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/5.0.2/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <div class="container">
+      <div class="row">
+        <h1> ¡Bienvenido a num.cl! </h1><br/>
+      </div>
+        <div class="row">
+          <p> Registra tus datos a continuación para obtener tu link personal </p>
+        </div>
+      <div class="row">
+        <form action="https://us-central1-num-cl.cloudfunctions.net/registerEmail" method="get">
+          <div class="form-group">
+            <label for="user_name">Nombre completo</label>
+            <input class="form-control" name="user_name" placeholder="Juan Pérez" required>
+          </div>
+          <div class="form-group">
+            <label for="user_rut">Rut</label>
+            <input class="form-control" name="user_rut" type='tel' pattern="[0-9]+-[0-9]" placeholder="12345678-9" required>
+          </div>
+          <div class="form-group">
+            <label for="bank_name">Banco</label>
+            <select class="form-control" name="bank_name">
+              <option>BBVA</option>
+              <option>Banco de Crédito e Inversiones (Bci)</option>
+              <option>Banco BICE</option>
+              <option>Banco Estado</option>
+              <option>CorpBanca</option>
+              <option>Consorcio</option>
+              <option>Banco de Chile</option>
+              <option>Banco Falabella</option>
+              <option>Banco HSBC</option>
+              <option>Banco Paris</option>
+              <option>Itaú</option>
+              <option>Banco Ripley</option>
+              <option>Banco Security</option>
+              <option>Santander</option>
+              <option>Scotiabank</option>
+              <option>TBanc</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="account_type">Tipo de cuenta</label>
+            <select class="form-control" name="account_type">
+              <option>Cuenta Corriente</option>
+              <option>Cuenta Vista</option>
+              <option>Cuenta Ahorro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="account_number">Número de cuenta</label>
+            <input type="number" class="form-control" name="account_number" placeholder="123456789" required>
+          </div>
+          <div class="form-group">
+            <label for="user_email">Email address</label>
+            <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email" required>
+            <small id="emailHelp" class="form-text text-muted">Tus datos serán encontrados al buscar tu mail: num.cl/mi@mail.cl</small>
+          </div>
+          <button type="submit" class="btn btn-primary">¡Crear mi link personalizado!</button>
+        </form>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
 </html>
