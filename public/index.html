@@ -6,66 +6,91 @@
     <title>NUM.cl</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
   </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <h1> ¡Bienvenido a num.cl! </h1><br/>
-      </div>
-        <div class="row">
-          <p> Registra tus datos a continuación para obtener tu link personal </p>
+
+  <body class="landing-layout">
+    <div class="landing-layout__nav">
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">num.cl</a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <!-- <li><a href="">¿Qué es num.cl?</a></li>
+              <li><a href="">Quiénes somos</a></li>
+              <li><a href="">Contacto</a></li> -->
+            </ul>
+          </div>
         </div>
-      <div class="row">
-        <form action="https://us-central1-num-cl.cloudfunctions.net/registerEmail" method="get">
-          <div class="form-group">
-            <label for="user_name">Nombre completo</label>
-            <input class="form-control" name="user_name" placeholder="Juan Pérez" required>
-          </div>
-          <div class="form-group">
-            <label for="user_rut">Rut</label>
-            <input class="form-control" name="user_rut" type='tel' pattern="[0-9]+-[0-9]" placeholder="12345678-9" required>
-          </div>
-          <div class="form-group">
-            <label for="bank_name">Banco</label>
-            <select class="form-control" name="bank_name">
-              <option>BBVA</option>
-              <option>Banco de Crédito e Inversiones (Bci)</option>
-              <option>Banco BICE</option>
-              <option>Banco Estado</option>
-              <option>CorpBanca</option>
-              <option>Consorcio</option>
-              <option>Banco de Chile</option>
-              <option>Banco Falabella</option>
-              <option>Banco HSBC</option>
-              <option>Banco Paris</option>
-              <option>Itaú</option>
-              <option>Banco Ripley</option>
-              <option>Banco Security</option>
-              <option>Santander</option>
-              <option>Scotiabank</option>
-              <option>TBanc</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="account_type">Tipo de cuenta</label>
-            <select class="form-control" name="account_type">
-              <option>Cuenta Corriente</option>
-              <option>Cuenta Vista</option>
-              <option>Cuenta Ahorro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="account_number">Número de cuenta</label>
-            <input type="number" class="form-control" name="account_number" placeholder="123456789" required>
-          </div>
-          <div class="form-group">
-            <label for="user_email">Email address</label>
-            <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email" required>
-            <small id="emailHelp" class="form-text text-muted">Tus datos serán encontrados al buscar tu mail: num.cl/mi@mail.cl</small>
-          </div>
-          <button type="submit" class="btn btn-primary">¡Crear mi link personalizado!</button>
-        </form>
+      </nav>
+    </div>
+
+
+    <div class="text-center">
+      <h1>Registra tu cuenta y comparte los datos</h1>
+      <p>Al registrarte obtendrás un <b>enlace único</b> que luego podrás compartir con quien quieras.</p>
+    </div>
+    <div class="panel-landing__form">
+      <form action="https://us-central1-num-cl.cloudfunctions.net/registerEmail" method="get">
+        <div class="form-group">
+          <label for="user_name">Nombre completo</label>
+          <input class="form-control" name="user_name" placeholder="Juan Pérez" required>
+        </div>
+        <div class="form-group">
+          <label for="user_rut">Rut</label>
+          <input class="form-control" name="user_rut" type='tel' pattern="[0-9]+-[0-9]" placeholder="12345678-9" required>
+        </div>
+        <div class="form-group">
+          <label for="bank_name">Banco</label>
+          <select class="form-control" name="bank_name">
+            <option>BBVA</option>
+            <option>Banco de Crédito e Inversiones (Bci)</option>
+            <option>Banco BICE</option>
+            <option>Banco Estado</option>
+            <option>CorpBanca</option>
+            <option>Consorcio</option>
+            <option>Banco de Chile</option>
+            <option>Banco Falabella</option>
+            <option>Banco HSBC</option>
+            <option>Banco Paris</option>
+            <option>Itaú</option>
+            <option>Banco Ripley</option>
+            <option>Banco Security</option>
+            <option>Santander</option>
+            <option>Scotiabank</option>
+            <option>TBanc</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="account_type">Tipo de cuenta</label>
+          <select class="form-control" name="account_type">
+            <option>Cuenta Corriente</option>
+            <option>Cuenta Vista</option>
+            <option>Cuenta Ahorro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="account_number">Número de cuenta</label>
+          <input type="number" class="form-control" name="account_number" placeholder="123456789" required>
+        </div>
+        <div class="form-group">
+          <label for="user_email">Email address</label>
+          <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email" required>
+          <small id="emailHelp" class="form-text text-muted">Tus datos serán encontrados al buscar tu mail: num.cl/mi@mail.cl</small>
+        </div>
+        <button type="submit" class="btn btn-primary">¡Crear mi link personalizado!</button>
+      </form>
+    </div>
+    <div class="panel-landing__wrapper">
+      <div class="panel-landing">
       </div>
+    </div>
+    <div class="footer">
+      <div class="footer__up"></div>
+      <div class="footer__down"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

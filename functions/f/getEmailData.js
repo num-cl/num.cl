@@ -2,10 +2,6 @@ const fe = require("firebase-encode");
 const fs = require('fs');
 
 exports.handler = function(req, res, admin) {
-  const defaultDesc = 'The mobsters, bootleggers and gangsters of the 1920s and 30s, such as Al Capone, Lucky Luciano, and Bugs Moran.';
-  const defaultTitle = 'Original Gangsters';
-  const defaultLogo = 'https://example.com/images/headerHQ.jpg';
-
   const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
   const getOpenGraph = (data) => {
     let og = `<meta property="fb:app_id" content="921373517372" />`;
@@ -38,7 +34,6 @@ exports.handler = function(req, res, admin) {
 
   var indexHTML = fs.readFileSync('./public/your-details.html').toString();
   const ogPlaceholder = '<meta name="functions-insert-dynamic-og">';
-  const metaPlaceholder = '<meta name="functions-insert-dynamic-meta">';
 
   const user_email = req.path.replace('/', '');
   console.log(user_email);

@@ -1,0 +1,139 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+body.no-scroll {
+  height: 100%;
+}
+
+.nav-tabs > li {
+  margin-bottom: -2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #7799ff;
+}
+
+p {
+  color: #808080;
+}
+
+.btn--wide {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #7799ff;
+  border-color: #6886df;
+}
+
+.callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.callout.callout-info {
+  border-left-color: #0a2abd;
+}
+.footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+.footer__up {
+  height: 250px;
+  background-color: #7799ff;
+}
+.footer__down {
+  height: 50px;
+  background-color: #6886df;
+}
+
+input.form-control,
+select.form-control {
+  border-radius: 0;
+}
+
+.form-group label {
+  color: grey;
+}
+
+.application-layout__page {
+  display: flex;
+}
+.application-layout__sidebar {
+  width: 300px;
+  padding-right: 30px;
+}
+@media (max-width: 767px) {
+  .application-layout__sidebar {
+    display: none;
+  }
+}
+.application-layout__content {
+  width: 100%;
+}
+.application-layout__help {
+  width: 300px;
+  padding-left: 30px;
+}
+@media (max-width: 1024px) {
+  .application-layout__help {
+    display: none;
+  }
+}
+.application-layout__nav {
+  margin-bottom: 15px;
+}
+
+.landing-layout__nav {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.landing-layout__nav .navbar-default {
+  min-height: 100px;
+  background-color: transparent;
+  border: 0;
+}
+.landing-layout__nav .nav > li > a {
+  line-height: 100px;
+}
+.landing-layout__nav .navbar-brand {
+  font-size: 40px;
+  font-weight: bolder;
+  line-height: 100px;
+  color: #7799ff;
+}
+.panel-devise,
+.panel-landing {
+  width: 100%;
+  padding: 0 30px;
+  margin-top: -170px;
+}
+.panel-devise__wrapper,
+.panel-landing__wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+.panel-landing {
+  margin-top: 0;
+}
+.panel-landing__form {
+  max-width: 400px;
+  margin: 50px auto;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+}
