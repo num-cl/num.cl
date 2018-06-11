@@ -1,100 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="es">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NUM.cl</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
+    <!-- Foundation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+    <!-- num css -->
+    <link rel="stylesheet" href="css/ozzy.css">
+    <link rel="stylesheet" href="css/poppins-font.css">
   </head>
 
-  <body class="landing-layout">
-    <div class="landing-layout__nav">
-      <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="/">num.cl</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <!-- <li><a href="">¿Qué es num.cl?</a></li>
-              <li><a href="">Quiénes somos</a></li>
-              <li><a href="">Contacto</a></li> -->
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-
-
-    <div class="text-center">
-      <h1>Registra tu cuenta y comparte los datos</h1>
-      <p>Al registrarte obtendrás un <b>enlace único</b> que luego podrás compartir con quien quieras.</p>
-    </div>
-    <div class="panel-landing__form">
-      <form action="https://us-central1-num-cl.cloudfunctions.net/registerEmail" method="get">
-        <div class="form-group">
-          <label for="user_name">Nombre completo</label>
-          <input class="form-control" name="user_name" placeholder="Juan Pérez" required>
-        </div>
-        <div class="form-group">
-          <label for="user_rut">Rut</label>
-          <input class="form-control" name="user_rut" type='tel' pattern="[0-9]+-[0-9]" placeholder="12345678-9" required>
-        </div>
-        <div class="form-group">
-          <label for="bank_name">Banco</label>
-          <select class="form-control" name="bank_name">
-            <option>BBVA</option>
-            <option>Banco de Crédito e Inversiones (Bci)</option>
-            <option>Banco BICE</option>
-            <option>Banco Estado</option>
-            <option>CorpBanca</option>
-            <option>Consorcio</option>
-            <option>Banco de Chile</option>
-            <option>Banco Falabella</option>
-            <option>Banco HSBC</option>
-            <option>Banco Paris</option>
-            <option>Itaú</option>
-            <option>Banco Ripley</option>
-            <option>Banco Security</option>
-            <option>Santander</option>
-            <option>Scotiabank</option>
-            <option>TBanc</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="account_type">Tipo de cuenta</label>
-          <select class="form-control" name="account_type">
-            <option>Cuenta Corriente</option>
-            <option>Cuenta Vista</option>
-            <option>Cuenta Ahorro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="account_number">Número de cuenta</label>
-          <input type="number" class="form-control" name="account_number" placeholder="123456789" required>
-        </div>
-        <div class="form-group">
-          <label for="user_email">Email address</label>
-          <input type="email" class="form-control" name="user_email" aria-describedby="emailHelp" placeholder="Enter email" required>
-          <small id="emailHelp" class="form-text text-muted">Tus datos serán encontrados al buscar tu mail: num.cl/mi@mail.cl</small>
-        </div>
-        <button type="submit" class="btn btn-primary">¡Crear mi link personalizado!</button>
-      </form>
-    </div>
-    <div class="panel-landing__wrapper">
-      <div class="panel-landing">
+  <body class="grid-y">
+    <nav class="navbar grid-x">
+      <div class="navbar-logo cell small-offset-1 medium-offset-1 large-offset-1">
+        <a href="/">num.cl</a>
       </div>
-    </div>
-    <div class="footer">
-      <div class="footer__up"></div>
-      <div class="footer__down"></div>
-    </div>
+    </nav>
+    <main class="grid-y">
+      <center>
+        <h1 class="title">
+          Registra tu cuenta y comparte los datos
+        </h1>
+        <p class="subtitle">
+          Al registrarte obtendrás un <b>enlace único</b> que luego podrás compartir con quien quieras.
+        </p>
+      </center>
+      <form class="grid-x" action="/function/register_user" method="get">
+        <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
+          <label>Nombre completo
+            <input name="user_name" type="text" placeholder="Hedy Lamarr" required>
+          </label>
+        </div>
+        <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
+          <label>E-mail
+            <input name="user_email" type="email" placeholder="mailbkn65@email.cl" required>
+          </label>
+        </div>
+        <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
+          <label>RUT
+            <input name="user_rut" type="text" placeholder="23153234-2" pattern="[0-9.]+-[0-9k]" required>
+          </label>
+        </div>
+        <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
+          <label>Número de cuenta
+            <input name="account_number" type="text" placeholder="1234567890" required>
+          </label>
+        </div>
+        <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
+          <label>Tipo de cuenta
+            <select name="account_type" required>
+              <option value="">seleccionar...</option>
+              <option>Cuenta Corriente</option>
+              <option>Cuenta Vista</option>
+              <option>Cuenta Ahorro</option>
+            </select>
+          </label>
+        </div>
+        <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
+          <label>Banco
+            <select name="bank_name" required>
+              <option value="">seleccionar...</option>
+              <option>BBVA</option>
+              <option>Banco de Crédito e Inversiones (Bci)</option>
+              <option>Banco BICE</option>
+              <option>Banco Estado</option>
+              <option>CorpBanca</option>
+              <option>Consorcio</option>
+              <option>Banco de Chile</option>
+              <option>Banco Falabella</option>
+              <option>Banco HSBC</option>
+              <option>Banco Paris</option>
+              <option>Itaú</option>
+              <option>Banco Ripley</option>
+              <option>Banco Security</option>
+              <option>Santander</option>
+              <option>Scotiabank</option>
+              <option>TBanc</option>
+            </select>
+          </label>
+        </div>
+        <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
+          <label><span id="url_example">URL personalizada (opcional)</span>
+            <input id="username" name="short_url" type="text" placeholder="chilenodecorazon">
+          </label>
+        </div>
+        <div class="grid-x small-12 medium-12 large-12 align-center">
+          <button class="button" type="submit" value="Submit">Crear mi num</button>
+        </div>
+      </form>
+    </main>
+    <footer class="grid-x align-center">
+      <h6>Utile Dulci</h6>
+    </footer>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <!-- jQuery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Foundation JS -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <!-- Preview url JS -->
+    <script src="/js/preview_url.js"></script>
   </body>
 </html>

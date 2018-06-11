@@ -32,7 +32,7 @@ exports.handler = function(req, res, admin) {
     return template.replace(/\$user_email/g, data.user_email);
   }
 
-  var indexHTML = fs.readFileSync('./public/your-details.html').toString();
+  var indexHTML = fs.readFileSync('./views/your-details.html').toString();
   const ogPlaceholder = '<meta name="functions-insert-dynamic-og">';
 
   const user_email = req.path.replace('/', '');

@@ -1,0 +1,61 @@
+main {
+  min-height: 60vh;
+}
+
+h1, h2, h3, h4, h5, h6, p, .navbar-logo a {
+  color: #7799ff;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar-logo a {
+  font-size: 40px;
+  font-weight: bolder;
+  line-height: 100px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+p {
+  color: #808080;
+}
+
+label {
+  color: grey;
+  font-size: 1em;
+  font-weight: 800;
+}
+
+.badge {
+  background-color: #7799ff;
+  border-radius: 15%;
+}
+
+.copy_btn {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.button {
+  font-family: "Poppins", sans-serif;
+  margin-top: 1.5em;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: #7799ff;
+  border-radius: .5em;
+}
+
+footer {
+  height: 15em;
+  background-color: #7799ff;
+  margin-top: 5em;
+  padding-top: 2em;
+  border-style: solid;
+  border-width: 0 0 3em 0;
+  border-color: #6886df
+}

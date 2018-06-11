@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NUM.cl</title>
+
+    <!-- Foundation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/css/foundation.min.css" integrity="sha256-GSio8qamaXapM8Fq9JYdGNTvk/dgs+cMLgPeevOYEx0= sha384-wAweiGTn38CY2DSwAaEffed6iMeflc0FMiuptanbN4J+ib+342gKGpvYRWubPd/+ sha512-QHEb6jOC8SaGTmYmGU19u2FhIfeG+t/hSacIWPpDzOp5yygnthL3JwnilM7LM1dOAbJv62R+/FICfsrKUqv4Gg==" crossorigin="anonymous">
+    <!-- num css -->
+    <link rel="stylesheet" href="css/ozzy.css">
+    <link rel="stylesheet" href="css/poppins-font.css">
+    <link rel="stylesheet" href="css/list.css">
+  </head>
+
+  <body class="grid-y">
+    <nav class="navbar grid-x">
+      <div class="navbar-logo cell small-offset-1 medium-offset-1 large-offset-1">
+        <a href="/">num.cl</a>
+      </div>
+    </nav>
+    <main class="grid-y">
+        <div class="text-center">
+          <h1>$user_name</h1>
+          <p>Mis datos bancarios son:</p>
+        </div>
+
+        <div class="grid-x align-center">
+          <ul class="list-group grid-y small-10 medium-6 large-4">
+            <li class="list-group-item grid-x align-justify">
+              <div>
+                Nombre: <b>$user_name</b>
+              </div>
+              <span class="badge">
+                <a href="#" name="Name" class="copy_btn" data-clipboard-text="$user_name">copiar</a>
+              </span>
+            </li>
+              <li class="list-group-item grid-x align-justify">
+              <div>
+                  Rut: <b>$user_rut</b>
+                </div>
+                  <span class="badge">
+                    <a href="#" name="Rut" class="copy_btn" data-clipboard-text="$user_rut">copiar</a>
+                  </span>
+              </li>
+
+            <li class="list-group-item grid-x align-justify">
+              <div>
+                Banco: <b>$bank_name</b>
+              </div>
+              <span class="badge">
+                <a href="#" name="Nombre del Banco"  class="copy_btn" data-clipboard-text="$bank_name">copiar</a>
+              </span>
+            </li>
+
+            <li class="list-group-item grid-x align-justify">
+              <div>
+                Tipo: <b>$account_type</b>
+              </div>
+              <span class="badge">
+                <a href="#" name="Tipo de Cuenta"  class="copy_btn" data-clipboard-text="$account_type">copiar</a>
+              </span>
+            </li>
+
+            <li class="list-group-item grid-x align-justify">
+              <div>
+                Número: <b>$account_number</b>
+              </div>
+              <span class="badge">
+                <a href="#" name="Número de Cuenta"  class="copy_btn" data-clipboard-text="$account_number">copiar</a>
+              </span>
+            </li>
+
+            <li class="list-group-item grid-x align-justify">
+              <div>
+                Email: <b>$user_email</b>
+              </div>
+              <span class="badge">
+                <a href="#" name="Email" class="copy_btn" data-clipboard-text="$user_email">copiar</a>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="text-center small-10 medium-6 large-4">
+          <button type="button" class="button copy_btn" data-clipboard-text="$full_data">
+            Copiar todos los datos
+          </button>
+        </div>
+
+        <div class="text-center">
+          <h3>¿Acabas de conocer num.cl?</h3>
+          <p>¡Te invitamos a <b><a href="/">registrar</a></b> también tus datos!</p>
+          <h3>¿Tus datos están incorrectos?</h3>
+          <p>Simplemente <b><a href="/">vuelve a registrarte</a></b> con tu mismo email :)</p>
+        </div>
+      </div>
+    </main>
+    <footer class="grid-x align-center">
+      <h6>Utile Dulci</h6>
+    </footer>
+
+    <!-- jQuery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Foundation JS -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <!-- Clipboard JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+    <script src="/js/clipboard_setup.js"></script>
+  </body>
+</html>

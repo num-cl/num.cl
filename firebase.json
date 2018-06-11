@@ -15,10 +15,10 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-      {
-        "source": "/*",
-        "function": "getEmailData"
-      }
+      { "source": "/function/register_user",
+        "function": "registerEmail" },
+      { "source": "/*",
+        "function": "getEmailData" }
     ]
   }
 }
