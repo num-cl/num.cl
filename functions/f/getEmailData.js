@@ -40,7 +40,7 @@ exports.handler = function(req, res, admin) {
 
   const user_email = req.path.replace('/', '');
   console.log(user_email);
-  admin.database().ref('/u/' + fe.encode(user_email))
+  admin.database().ref('/user/by_email/' + fe.encode(user_email))
     .once('value').then(snap => {
       if (snap.val() !== null) {
         indexHTML = indexHTML.replace(ogPlaceholder, getOpenGraph(snap.val()));

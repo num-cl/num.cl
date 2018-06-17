@@ -8,7 +8,7 @@ exports.handler = function(req, res, admin) {
   var tokenRef = admin.database().ref('/pending/' + fe.encode(user_email)).child(token);
   tokenRef.once('value').then(snapshot => {
     if (snapshot.val() !== null) {
-      admin.database().ref('/u/' + fe.encode(user_email)).set(snapshot.val());
+      admin.database().ref('/user/by_email/' + fe.encode(user_email)).set(snapshot.val());
       tokenRef.remove();
       res.redirect(303, 'https://num-cl.firebaseapp.com/' + user_email);
     } else {
