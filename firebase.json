@@ -18,7 +18,7 @@
       { "source": "/function/register_user",
         "function": "registerEmail" },
       { "source": "/*",
-        "function": "getEmailData" }
+        "function": "getUserData" }
     ]
   }
 }
