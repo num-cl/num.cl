@@ -1,8 +1,9 @@
+const functions = require('firebase-functions');
 const fe = require("firebase-encode");
 const fs = require('fs');
 
 exports.handler = function(req, res, admin) {
-  const hostUrl = functions.config().num.url;
+  const hostUrl = functions.config().num.host;
   const fullUrl = hostUrl + req.originalUrl;
   const getOpenGraph = (data) => {
     let og = `<meta property="fb:app_id" content="921373517372" />`;
@@ -38,18 +39,40 @@ exports.handler = function(req, res, admin) {
   var indexHTML = fs.readFileSync('./views/your-details.html').toString();
   const ogPlaceholder = '<meta name="functions-insert-dynamic-og">';
 
-  const user_email = req.path.replace('/', '');
-  console.log(user_email);
-  admin.database().ref('/user/by_email/' + fe.encode(user_email))
-    .once('value').then(snap => {
-      if (snap.val() !== null) {
-        indexHTML = indexHTML.replace(ogPlaceholder, getOpenGraph(snap.val()));
-        indexHTML = replaceUserData(indexHTML, snap.val());
-        res.status(200).send(indexHTML);
-      } else {
-        res.status(404).send('Ese mail no existe en nuestros registros :/');
+  const retrieveUserData = (email) => {
+    admin.database().ref('/user/by_email/' + fe.encode(email))
+      .once('value').then(snap => {
+        if (snap.val() !== null) {
+          indexHTML = indexHTML.replace(ogPlaceholder, getOpenGraph(snap.val()));
+          indexHTML = replaceUserData(indexHTML, snap.val());
+          res.status(200).send(indexHTML);
+        } else {
+          console.log(email);
+          res.status(404).send(`El mail ${email} no existe en nuestros registros :/`);
+        }
+        return;
       }
-      return;
-    }
-  ).catch(err => res.status(500).send(err));
+    ).catch(err => res.status(500).send(err));
+  }
+
+  const retrieveUserEmailAndThenData = (username) => {
+    admin.database().ref(`/user/by_username/${username}`)
+      .once('value').then(snap => {
+        if (snap.val() !== null) {
+          retrieveUserData(fe.decode(snap.val()));
+        } else {
+          console.log(username);
+          res.status(404).send('Ese usuario no existe en nuestros registros :/');
+        }
+        return;
+      }
+    ).catch(err => res.status(500).send(err));
+  }
+
+  const user_reference = req.path.replace('/', '');
+  if (user_reference.indexOf('@') > -1) {
+    retrieveUserData(user_reference);
+  } else {
+    retrieveUserEmailAndThenData(user_reference);
+  }
 };
