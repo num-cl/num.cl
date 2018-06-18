@@ -9,6 +9,7 @@ const mailTransport = nodemailer.createTransport(
 
 exports.handler = function(req, res, admin) {
   const user_email = req.query.user_email;
+  const hostUrl = functions.config().num.url;
 
   // TODO:  Validate fields
 
@@ -28,13 +29,13 @@ exports.handler = function(req, res, admin) {
         subject: '[Num.cl] Valida tu email :)'
       };
       mailOptions.text = 'Para validar tu mail visita este link: '
-        + 'https://us-central1-num-cl.cloudfunctions.net/validateEmail?'
+        + `${hostUrl}/function/validate_email?`
         + 'user_email=' + fe.encode(user_email)
         + '&'
         + 'token=' + snap.key;
 
       mailTransport.sendMail(mailOptions).then(() => {
-        res.redirect(303, 'https://num-cl.firebaseapp.com/validation-pending.html');
+        res.redirect(303, `${hostUrl}/validation-pending.html`);
         return;
       }).catch(error => {
         console.error('There was an error while sending the email:', error);

@@ -17,6 +17,8 @@
     "rewrites": [
       { "source": "/function/register_user",
         "function": "registerEmail" },
+      { "source": "/function/validate_email",
+        "function": "validateEmail" },
       { "source": "/*",
         "function": "getUserData" }
     ]

@@ -2,7 +2,7 @@ const fe = require("firebase-encode");
 const fs = require('fs');
 
 exports.handler = function(req, res, admin) {
-  const hostUrl = req.protocol + '://' + req.get('host');
+  const hostUrl = functions.config().num.url;
   const fullUrl = hostUrl + req.originalUrl;
   const getOpenGraph = (data) => {
     let og = `<meta property="fb:app_id" content="921373517372" />`;
