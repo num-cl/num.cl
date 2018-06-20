@@ -2,7 +2,8 @@ const fe = require("firebase-encode");
 const fs = require('fs');
 
 exports.handler = function(req, res, admin) {
-  const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  const hostUrl = req.protocol + '://' + req.get('host');
+  const fullUrl = hostUrl + req.originalUrl;
   const getOpenGraph = (data) => {
     let og = `<meta property="fb:app_id" content="921373517372" />`;
     og += `<meta property="og:type" content="website" />`;
@@ -15,9 +16,9 @@ exports.handler = function(req, res, admin) {
       return og;
     }
     og += `<meta property="og:title" content="${data.user_name} | ${data.user_rut}" />`;
-    og += `<meta property="og:description" content="${data.bank_name} | ${data.bank_account_type} | ${data.bank_account_number} | ${data.user_email}" />`;
+    og += `<meta property="og:description" content="${data.bank_name} | ${data.account_type} | ${data.account_number} | ${data.user_email}" />`;
     og += `<meta property="og:url" content="${fullUrl}" />`;
-    og += `<meta property="og:image" itemprop="image" content="https://num-cl.firebaseapp.com/images/logo.png" />`;
+    og += `<meta property="og:image" itemprop="image" content="${hostUrl}/images/logo.png" />`;
     og += `<meta property="og:type" content="website" />`;
     og += `<meta property="og:locale" content="es_LA" />`;
     return og;
@@ -29,7 +30,9 @@ exports.handler = function(req, res, admin) {
     template = template.replace(/\$bank_name/g, data.bank_name);
     template = template.replace(/\$account_type/g, data.account_type);
     template = template.replace(/\$account_number/g, data.account_number);
-    return template.replace(/\$user_email/g, data.user_email);
+    template = template.replace(/\$user_email/g, data.user_email);
+    full_data = `${data.user_name}\n${data.user_rut}\n${data.bank_name}\n${data.account_type}\n${data.account_number}\n${data.user_email}`;
+    return template.replace(/\$full_data/g, full_data);
   }
 
   var indexHTML = fs.readFileSync('./views/your-details.html').toString();
