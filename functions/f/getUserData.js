@@ -8,18 +8,9 @@ exports.handler = function(req, res, admin) {
   const getOpenGraph = (data) => {
     let og = `<meta property="fb:app_id" content="921373517372" />`;
     og += `<meta property="og:type" content="website" />`;
-
-    if (!data) {
-      og += `<meta property="og:title" content="${defaultTitle}" />`;
-      og += `<meta property="og:description" content="${defaultDesc}" />`;
-      og += `<meta property="og:image" content="${defaultLogo}" />`;
-      og += `<meta property="og:url" content="https://example.com" />`;
-      return og;
-    }
     og += `<meta property="og:title" content="${data.user_name} | ${data.user_rut}" />`;
     og += `<meta property="og:description" content="${data.bank_name} | ${data.account_type} | ${data.account_number} | ${data.user_email}" />`;
     og += `<meta property="og:url" content="${fullUrl}" />`;
-    og += `<meta property="og:image" itemprop="image" content="${hostUrl}/images/logo.png" />`;
     og += `<meta property="og:type" content="website" />`;
     og += `<meta property="og:locale" content="es_LA" />`;
     return og;
