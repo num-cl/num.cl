@@ -4,7 +4,7 @@ admin.initializeApp(functions.config().firebase);
 
 const registerEmail = require('./f/registerEmail');
 const validateEmail = require('./f/validateEmail');
-const getEmailData = require('./f/getEmailData');
+const getUserData = require('./f/getUserData');
 
 exports.registerEmail = functions.https.onRequest((req, res) => {
     registerEmail.handler(req, res, admin);
@@ -12,6 +12,6 @@ exports.registerEmail = functions.https.onRequest((req, res) => {
 exports.validateEmail = functions.https.onRequest((req, res) => {
     validateEmail.handler(req, res, admin);
 });
-exports.getEmailData = functions.https.onRequest((req, res) => {
-    getEmailData.handler(req, res, admin);
+exports.getUserData = functions.https.onRequest((req, res) => {
+    getUserData.handler(req, res, admin);
 });
