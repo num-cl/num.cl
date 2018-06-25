@@ -1,5 +1,5 @@
 const functions = require('firebase-functions');
-const fe = require("firebase-encode");
+const encoder = require('./helper/encoder');
 const sgMail = require('@sendgrid/mail');
 
 exports.handler = function(req, res, admin) {
@@ -22,7 +22,7 @@ exports.handler = function(req, res, admin) {
   }
 
   const sendValidationEmail = (snap) => {
-    link = `${hostUrl}/function/validate_email?user_email=${fe.encode(user_email)}&token=${snap.key}`;
+    link = `${hostUrl}/function/validate_email?user_email=${user_email}&token=${snap.key}`;
     const msg = {
       to: user_email,
       from: `"Num.cl" <${functions.config().sendgrid.from_email}>`,
@@ -35,7 +35,7 @@ exports.handler = function(req, res, admin) {
   }
 
   const registerUser = () => {
-    var registration = admin.database().ref('/pending/' + fe.encode(user_email)).push(
+    var registration = admin.database().ref('/pending/' + encoder.encode(user_email)).push(
       data
     ).then(snap => {
       sendValidationEmail(snap);
@@ -43,7 +43,7 @@ exports.handler = function(req, res, admin) {
     });
   }
 
-  admin.database().ref(`/user/by_username/${data.username}`)
+  admin.database().ref(`/user/by_username/${encoder.encode(data.username)}`)
     .once('value').then(snap => {
       if (snap.val() !== null) {
         res.status(409).send(`La url num.cl/${data.username} ya está tomada :( Por favor prueba con otra url`);

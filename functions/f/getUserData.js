@@ -1,5 +1,5 @@
 const functions = require('firebase-functions');
-const fe = require("firebase-encode");
+const encoder = require('./helper/encoder');
 const fs = require('fs');
 
 exports.handler = function(req, res, admin) {
@@ -31,7 +31,7 @@ exports.handler = function(req, res, admin) {
   const ogPlaceholder = '<meta name="functions-insert-dynamic-og">';
 
   const retrieveUserData = (email) => {
-    admin.database().ref('/user/by_email/' + fe.encode(email))
+    admin.database().ref(`/user/by_email/${encoder.encode(email)}`)
       .once('value').then(snap => {
         if (snap.val() !== null) {
           indexHTML = indexHTML.replace(ogPlaceholder, getOpenGraph(snap.val()));
@@ -47,10 +47,10 @@ exports.handler = function(req, res, admin) {
   }
 
   const retrieveUserEmailAndThenData = (username) => {
-    admin.database().ref(`/user/by_username/${username}`)
+    admin.database().ref(`/user/by_username/${encoder.encode(username)}`)
       .once('value').then(snap => {
         if (snap.val() !== null) {
-          retrieveUserData(fe.decode(snap.val()));
+          retrieveUserData(snap.val());
         } else {
           console.log(username);
           res.status(404).send('Ese usuario no existe en nuestros registros :/');
