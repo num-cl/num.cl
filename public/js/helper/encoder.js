@@ -1,4 +1,4 @@
-// If modifying this file, please check also /public/js/helper/encoder.js
+// If modifying this file, please check also /functions/f/helper/encoder.js
 
 const escapeRegExp = (str) => str.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
 
@@ -25,11 +25,3 @@ const {
   encode,
   decode,
 } = create('.$[]#/% '.split(''));
-
-exports.encode = function(string) {
-  return encode(decode(string));
-};
-
-exports.decode = function(string) {
-  return decode(string);
-};

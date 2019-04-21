@@ -43,9 +43,14 @@ exports.handler = function(req, res, admin) {
     });
   }
 
+  const record_exists_and_email_is_not = (snap, email) => {
+    return snap.exists() && snap.val() !== email;
+  }
+
+  // main
   admin.database().ref(`/user/by_username/${encoder.encode(data.username)}`)
     .once('value').then(snap => {
-      if (snap.val() !== null) {
+      if (record_exists_and_email_is_not(snap, user_email)) {
         res.status(409).send(`La url num.cl/${data.username} ya está tomada :( Por favor prueba con otra url`);
       } else {
         registerUser();

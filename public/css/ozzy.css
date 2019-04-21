@@ -22,6 +22,10 @@ p {
   color: #808080;
 }
 
+.error {
+  color: red;
+}
+
 label {
   color: grey;
   font-size: 1em;

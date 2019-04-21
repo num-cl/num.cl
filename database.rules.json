@@ -1,12 +1,12 @@
 {
   "rules": {
-    "pending": {
-      ".read": false,
-      ".write": false
-    },
-    "u": {
-      ".read": false,
-      ".write": false
+    "user": {
+      "by_username": {
+        "$username": {
+          ".read": true,
+          ".write": false
+        }
+      }
     }
   }
 }
