@@ -9,13 +9,15 @@ exports.handler = function(req, res, admin) {
 
   var tokenRef = admin.database().ref(`/pending/${encoder.encode(user_email)}`).child(token);
   tokenRef.once('value').then(snapshot => {
+    let returning_url = `${hostUrl}/${user_email}`;
     if (snapshot.val() !== null) {
       admin.database().ref(`/user/by_email/${encoder.encode(user_email)}`).set(snapshot.val());
       if (snapshot.val().username !== null) {
         admin.database().ref(`/user/by_username/${encoder.encode(snapshot.val().username)}`).set(snapshot.val().user_email);
+        returning_url = `${hostUrl}/${snapshot.val().username}`;
       }
       tokenRef.remove();
-      res.redirect(303, `${hostUrl}/${user_email}`);
+      res.redirect(303, returning_url);
     } else {
       res.status(500).send('Error :c');
     }
