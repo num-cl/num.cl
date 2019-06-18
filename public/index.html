@@ -36,7 +36,7 @@
         </div>
         <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
           <label>E-mail
-            <input name="user_email" type="email" placeholder="mailbkn65@email.cl" required>
+            <input id="user_email" name="user_email" type="email" placeholder="mailbkn65@email.cl" required>
           </label>
         </div>
         <div class="cell small-10 medium-6 large-4 small-offset-1 medium-offset-3 large-offset-4">
@@ -88,7 +88,7 @@
           </label>
         </div>
         <div class="grid-x small-12 medium-12 large-12 align-center">
-          <button class="button" type="submit" value="Submit">Crear mi num</button>
+          <button id="submit" class="button" type="submit" value="Submit">Crear mi num</button>
         </div>
       </form>
     </main>
@@ -100,8 +100,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- Foundation JS -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <!-- Firebase sdk -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
     <!-- Preview url JS -->
-    <script src="/js/preview_url.js"></script>
+    <script src="/js/helper/encoder.js"></script>
+    <script src="/js/check_username.js"></script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114321358-1"></script>
     <script>
