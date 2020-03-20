@@ -15,10 +15,8 @@ exports.handler = function(req, res, admin) {
     user_rut: req.query.user_rut,
     bank_name: req.query.bank_name,
     account_type: req.query.account_type,
-    account_number: req.query.account_number
-  }
-  if (req.query.short_url !== null) {
-    data["username"] = req.query.short_url;
+    account_number: req.query.account_number,
+    username: req.query.short_url
   }
 
   const sendValidationEmail = (snap) => {
