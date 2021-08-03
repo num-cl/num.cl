@@ -9,6 +9,7 @@
     "public": "public",
     "ignore": [
       "firebase.json",
+      ".github",
       "**/.*",
       "**/node_modules/**"
     ],

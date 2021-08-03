@@ -1,0 +1,25 @@
+name: production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+
+      - name: Install functions dependencies
+        run: npm ci --prefix functions
+
+      - name: Deploy
+        run: firebase deploy --project ${{ secrets.FIREBASE_APPLICATION_NAME }}
