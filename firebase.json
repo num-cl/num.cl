@@ -3,9 +3,7 @@
     "rules": "database.rules.json"
   },
   "functions": {
-    "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint"
-    ]
+    "source": "functions"
   },
   "hosting": {
     "public": "public",
@@ -15,12 +13,32 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-      { "source": "/function/register_user",
-        "function": "registerEmail" },
-      { "source": "/function/validate_email",
-        "function": "validateEmail" },
-      { "source": "/*",
-        "function": "getUserData" }
+      {
+        "source": "/function/register_user",
+        "function": "registerEmail"
+      },
+      {
+        "source": "/function/validate_email",
+        "function": "validateEmail"
+      },
+      {
+        "source": "/*",
+        "function": "getUserData"
+      }
     ]
+  },
+  "emulators": {
+    "database": {
+      "host": "localhost",
+      "port": 9000
+    },
+    "functions": {
+      "host": "localhost",
+      "port": 5001
+    },
+    "hosting": {
+      "host": "localhost",
+      "port": 5000
+    }
   }
 }
