@@ -5,7 +5,11 @@ const sgMail = require('@sendgrid/mail');
 exports.handler = function(req, res, admin) {
   const user_email = req.query.user_email;
   const hostUrl = functions.config().num.host;
-  sgMail.setApiKey(functions.config().sendgrid.api_key);
+  const environment = functions.config().environment || 'production';
+
+  if (environment === 'production') {
+    sgMail.setApiKey(functions.config().sendgrid.api_key);
+  }
 
   // TODO:  Validate fields
 
@@ -27,7 +31,11 @@ exports.handler = function(req, res, admin) {
       subject: '[Num.cl] Valida tu email :)',
       text: `Para validar tu mail visita este link: ${link}`
     };
-    sgMail.send(msg);
+    if (environment === 'production') {
+      sgMail.send(msg);
+    } else {
+      console.log(msg);
+    }
     res.redirect(303, `${hostUrl}/validation-pending.html`);
     return;
   }
