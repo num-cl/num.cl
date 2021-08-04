@@ -3,6 +3,10 @@ let url_example = document.getElementById('url_example');
 let email_input = document.getElementById('user_email');
 let username_input = document.getElementById('username');
 
+if (localStorage) {
+  localStorage.removeItem("firebase:previous_websocket_failure");
+}
+
 const enable_submit = () => {
   document.getElementById("submit").disabled = false;
 }
