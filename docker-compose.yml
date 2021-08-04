@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    init: true
+    volumes:
+      - .:/app
+      - /app/functions/node_modules
+    ports:
+      - "4000:4000"
+      - "5000:5000"
+      - "5001:5001"
+      - "9000:9000"

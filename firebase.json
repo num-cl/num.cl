@@ -11,7 +11,10 @@
       "firebase.json",
       ".github",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "docker-compose.yml",
+      "Dockerfile",
+      "entrypoint.sh"
     ],
     "rewrites": [
       {
@@ -30,16 +33,21 @@
   },
   "emulators": {
     "database": {
-      "host": "localhost",
+      "host": "0.0.0.0",
       "port": 9000
     },
     "functions": {
-      "host": "localhost",
+      "host": "0.0.0.0",
       "port": 5001
     },
     "hosting": {
-      "host": "localhost",
+      "host": "0.0.0.0",
       "port": 5000
+    },
+    "ui": {
+      "enabled": true,
+      "host": "0.0.0.0",
+      "port": 4000
     }
   }
 }
