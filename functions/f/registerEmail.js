@@ -4,8 +4,8 @@ const sgMail = require('@sendgrid/mail');
 
 exports.handler = function(req, res, admin) {
   const user_email = req.query.user_email;
-  const hostUrl = functions.config().num.host;
-  const environment = functions.config().environment || 'production';
+  const hostUrl = functions.config().application.host;
+  const environment = functions.config().application.environment || 'development';
 
   if (environment === 'production') {
     sgMail.setApiKey(functions.config().sendgrid.api_key);
