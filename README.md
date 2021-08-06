@@ -94,10 +94,10 @@ Here, `num-cl` corresponds to the project name on Firebase.
 
 Some environmental variables are required for the application to run properly. These variables correspond to:
 
-- `num.host`: The base URL where Num is being hosted (this is useful for callback URLs for verification mails).
+- `application.host`: The base URL where Num is being hosted (this is useful for callback URLs for verification mails).
+- `application.environment`: The environment on which the application is running. This variable is **optional**, and if it doesn't exist, Num will default to think it's running on `development`. It serves to avoid trying to send emails on local development and just print them to te console.
 - `sendgrid.api_key`: The API key for Sendgrid to send verification emails.
 - `sendgrid.from_email`: The email that sends the verification mails.
-- `environment`: The environment on which the application is running. This variable is **optional**, and if it doesn't exist, Num will default to think it's running on `production`. It serves to avoid trying to send emails on local development and just print them to te console.
 
 To modify an environmental variable on production, you can run the following command:
 
