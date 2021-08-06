@@ -18,7 +18,15 @@ jobs:
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
+      - name: Set up Functions node_modules cache
+        uses: actions/cache@v2
+        id: functions-node-modules-cache
+        with:
+          key: functions-node-modules-cache-${{ hashFiles('functions/package-lock.json') }}
+          path: 'functions/node_modules'
+
       - name: Install functions dependencies
+        if: steps.functions-node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci --prefix functions
 
       - name: Deploy
