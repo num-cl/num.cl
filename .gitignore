@@ -3,3 +3,4 @@ firebase-debug.log
 *.DS_Store
 .firebase
 *.log
+.firebaserc

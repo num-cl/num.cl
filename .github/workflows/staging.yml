@@ -1,9 +1,9 @@
-name: production
+name: staging
 
 on:
   push:
     branches:
-      - production
+      - master
 
 jobs:
   deploy:
@@ -30,4 +30,4 @@ jobs:
         run: npm ci --prefix functions
 
       - name: Deploy
-        run: firebase deploy --project ${{ secrets.FIREBASE_PRODUCTION_APPLICATION_NAME }}
+        run: firebase deploy --project ${{ secrets.FIREBASE_STAGING_APPLICATION_NAME }}
