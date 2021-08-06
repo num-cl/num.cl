@@ -1,0 +1,14 @@
+# Exclude everything
+*
+
+# Include application files
+!functions
+functions/node_modules
+!public
+
+# Include config files
+!database.rules.json
+!firebase.json
+
+# Include misc stuff
+!entrypoint.sh

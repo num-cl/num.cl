@@ -5,7 +5,7 @@ exports.handler = function(req, res, admin) {
   // link de validacion tipo: /validateEmail?user_email=mi@mail.cl&token=-Kasdafeigysdbg(token de firebase)
   const user_email = req.query.user_email;
   const token = req.query.token;
-  const hostUrl = functions.config().num.host;
+  const hostUrl = functions.config().application.host;
 
   var tokenRef = admin.database().ref(`/pending/${encoder.encode(user_email)}`).child(token);
   tokenRef.once('value').then(snapshot => {

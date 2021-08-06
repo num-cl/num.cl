@@ -1,0 +1,22 @@
+name: linters
+
+on:
+  pull_requests:
+    paths:
+      - "functions/**.js"
+      - "functions/.eslintrc.json"
+      - "functions/package-lock.json"
+
+jobs:
+  eslint:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install functions dependencies
+        run: npm ci --prefix functions
+
+      - name: Run ESLint
+        run: npm run lint --prefix functions

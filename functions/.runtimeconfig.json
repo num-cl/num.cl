@@ -1,0 +1,10 @@
+{
+  "application": {
+    "host": "http://localhost:5000",
+    "environment": "development"
+  },
+  "sendgrid": {
+    "api_key": "SENDGRID_API_KEY",
+    "from_email": "num@num.cl"
+  }
+}

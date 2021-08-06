@@ -3,24 +3,51 @@
     "rules": "database.rules.json"
   },
   "functions": {
-    "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint"
-    ]
+    "source": "functions"
   },
   "hosting": {
     "public": "public",
     "ignore": [
       "firebase.json",
+      ".github",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "docker-compose.yml",
+      "Dockerfile",
+      "entrypoint.sh"
     ],
     "rewrites": [
-      { "source": "/function/register_user",
-        "function": "registerEmail" },
-      { "source": "/function/validate_email",
-        "function": "validateEmail" },
-      { "source": "/*",
-        "function": "getUserData" }
+      {
+        "source": "/function/register_user",
+        "function": "registerEmail"
+      },
+      {
+        "source": "/function/validate_email",
+        "function": "validateEmail"
+      },
+      {
+        "source": "/*",
+        "function": "getUserData"
+      }
     ]
+  },
+  "emulators": {
+    "database": {
+      "host": "0.0.0.0",
+      "port": 9000
+    },
+    "functions": {
+      "host": "0.0.0.0",
+      "port": 5001
+    },
+    "hosting": {
+      "host": "0.0.0.0",
+      "port": 5000
+    },
+    "ui": {
+      "enabled": true,
+      "host": "0.0.0.0",
+      "port": 4000
+    }
   }
 }

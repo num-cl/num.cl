@@ -3,7 +3,7 @@ const encoder = require('./helper/encoder');
 const fs = require('fs');
 
 exports.handler = function(req, res, admin) {
-  const hostUrl = functions.config().num.host;
+  const hostUrl = functions.config().application.host;
   const fullUrl = hostUrl + req.originalUrl;
   const getOpenGraph = (data) => {
     let og = `<meta property="fb:app_id" content="921373517372" />`;

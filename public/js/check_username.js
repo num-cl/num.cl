@@ -1,14 +1,11 @@
-let config = {
-  apiKey: "AIzaSyBjMU3cwt-m8fD9Fx2VW1756re0PyRxDvg",
-  authDomain: "num-cl.firebaseapp.com",
-  databaseURL: "https://num-cl.firebaseio.com"
-};
-firebase.initializeApp(config);
-
 let database = firebase.database();
 let url_example = document.getElementById('url_example');
 let email_input = document.getElementById('user_email');
 let username_input = document.getElementById('username');
+
+if (localStorage) {
+  localStorage.removeItem("firebase:previous_websocket_failure");
+}
 
 const enable_submit = () => {
   document.getElementById("submit").disabled = false;
