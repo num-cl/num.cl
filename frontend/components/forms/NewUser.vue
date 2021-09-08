@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="pb-2">
     <Input
       class="pt-6 mx-4"
       label="Nombre Completo"
@@ -17,6 +17,7 @@
     <Input
       class="pt-6 mx-4"
       label="RUT"
+      hint="Ejemplo: 23153234-2"
       v-model="rut"
       required
     />
@@ -47,22 +48,22 @@
       v-model="alias"
       required
     />
-    <v-card-actions>
+    <v-card-actions class="mt-4">
       <v-spacer />
       <v-btn
         color="primary"
-        nuxt
-        to="/inspire"
+        x-large
       >
-        Continue
+        Crear mi num
       </v-btn>
+      <v-spacer />
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
-import Input from '~/components/formComponents/Input';
-import Dropdown from '~/components/formComponents/Dropdown';
+import Input from './components/Input';
+import Dropdown from './components/Dropdown';
 
 import { BANKS, ACCOUNT_TYPES } from '~/utils/constants';
 import { EMAIL_VALIDATION } from '~/utils/validations';

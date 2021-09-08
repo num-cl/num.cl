@@ -18,10 +18,15 @@ export default {
         component: 'pages/index.vue',
       },
       {
+        name: 'validation-pending',
+        path: '/validation/pending',
+        component: 'pages/validation/pending.vue',
+      },
+      {
         name: 'user-data',
         path: '/:username',
         component: 'pages/_username.vue'
-      }
+      },
     ],
   }),
 };
