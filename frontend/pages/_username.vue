@@ -43,11 +43,6 @@ const USERS = {
 };
 
 export default {
-  head() {
-    return {
-      title: `num.cl - ${this.userData?.name || 'Loading...'}`,
-    };
-  },
   data: () => ({
     userData: null,
   }),
@@ -61,6 +56,43 @@ export default {
   },
   async fetch() {
     this.userData = USERS[this.username];
+  },
+  head() {
+    return {
+      title: `num.cl - ${this.userData.name}`,
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.userData.name} | ${this.userData.rut}`,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `${this.userData.bank} | ${this.userData.accountType} | ${this.userData.accountNumber} | ${this.userData.email}`,
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: `https://num.cl/${this.username}`,
+        },
+        {
+          hid: 'fb:app_id',
+          name: 'fb:app_id',
+          content: '921373517372',
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website',
+        },
+        {
+          hid: 'og:locale',
+          name: 'og:locale',
+          content: 'es_LA',
+        },
+      ],
+    };
   },
 };
 </script>
