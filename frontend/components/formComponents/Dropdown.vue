@@ -1,48 +1,43 @@
 <template>
-  <v-text-field
+  <v-select
     :label="label"
+    :items="items"
     :rules="computedRules"
-    :hint="hint"
-    v-model="innerValue"
-    hide-details="auto"
-    persistent-hint
+    v-model="value"
   />
 </template>
 
 <script>
 export default {
   data: () => ({
-    innerValue: '',
+    value: '',
   }),
   props: {
     label: {
       type: String,
       required: true,
     },
-    hint: {
-      type: String,
+    items: {
+      type: Array,
+      required: true,
     },
     required: {
       type: Boolean,
       default: false,
     },
-    rules: {
-      type: Array,
-      default: () => [],
-    },
   },
   computed: {
     computedRules() {
       if (this.required) {
-        return [...this.rules, (value) => !!value || 'Este campo debe ser llenado!'];
+        return [(value) => !!value || 'Este campo debe ser llenado!'];
       }
-      return this.rules;
+      return [];
     },
   },
   watch: {
-    innerValue(value) {
+    value(value) {
       this.$emit('input', value);
     },
   },
-}
+};
 </script>
