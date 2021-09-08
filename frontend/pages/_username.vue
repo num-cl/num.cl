@@ -54,8 +54,9 @@ export default {
       return this.$route.params.username;
     },
   },
-  async fetch() {
-    this.userData = USERS[this.username];
+  async asyncData({ params, $axios, $firebase }) {
+    const userData = USERS[params.username];
+    return { userData }
   },
   head() {
     return {
