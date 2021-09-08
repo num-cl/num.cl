@@ -2,10 +2,10 @@
   <v-list-item>
     <v-list-item-content>
       <v-list-item-title>
-        {{ title }}
+        {{ data }}
       </v-list-item-title>
       <v-list-item-subtitle>
-        {{ subtitle }}
+        {{ label }}
       </v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-icon>
@@ -20,18 +20,19 @@
 <script>
 export default {
   props: {
-    title: {
+    data: {
       type: String,
       required: true,
     },
-    subtitle: {
+    label: {
       type: String,
       required: true,
     },
   },
   methods: {
     copy() {
-      this.$emit("copy-callback", this.subtitle, this.title);
+      this.$clipboard(this.data);
+      this.$emit("copy-callback", this.label, this.data);
     }
   },
 };

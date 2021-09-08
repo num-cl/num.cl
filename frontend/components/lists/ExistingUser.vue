@@ -2,38 +2,38 @@
   <v-card class="pb-1">
     <v-list>
       <list-element
-        :title="data.name"
-        subtitle="Nombre"
+        :data="data.name"
+        label="Nombre"
         @copy-callback="attributeCopied"
       />
       <v-divider />
       <list-element
-        :title="data.rut"
-        subtitle="RUT"
+        :data="data.rut"
+        label="RUT"
         @copy-callback="attributeCopied"
       />
       <v-divider />
       <list-element
-        :title="data.bank"
-        subtitle="Banco"
+        :data="data.bank"
+        label="Banco"
         @copy-callback="attributeCopied"
       />
       <v-divider />
       <list-element
-        :title="data.accountType"
-        subtitle="Tipo de Cuenta"
+        :data="data.accountType"
+        label="Tipo de Cuenta"
         @copy-callback="attributeCopied"
       />
       <v-divider />
       <list-element
-        :title="data.accountNumber"
-        subtitle="Número de Cuenta"
+        :data="data.accountNumber"
+        label="Número de Cuenta"
         @copy-callback="attributeCopied"
       />
       <v-divider />
       <list-element
-        :title="data.email"
-        subtitle="Email"
+        :data="data.email"
+        label="Email"
         @copy-callback="attributeCopied"
       />
     </v-list>
@@ -84,6 +84,15 @@ export default {
       this.openSnackbar(text);
     },
     copyAll() {
+      const copying = [
+        this.data.name,
+        this.data.rut,
+        this.data.bank,
+        this.data.accountType,
+        this.data.accountNumber,
+        this.data.email,
+      ].join('\n');
+      this.$clipboard(copying);
       const text = 'Todos los atributos fueron copiados al portapapeles.';
       this.openSnackbar(text);
     },
