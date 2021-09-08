@@ -1,6 +1,7 @@
 <template>
   <v-app dark>
     <v-main>
+      <Header class="mb-4" />
       <v-container>
         <Nuxt />
       </v-container>
@@ -9,6 +10,8 @@
 </template>
 
 <script>
+import Header from '~/components/Header.vue';
+
 export default {
   data: () => ({
     items: [
@@ -29,5 +32,14 @@ export default {
       },
     ],
   }),
+  components: {
+    Header,
+  },
 };
 </script>
+
+<style>
+html {
+  overflow-y: auto;
+}
+</style>
